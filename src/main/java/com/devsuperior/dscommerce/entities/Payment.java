@@ -10,9 +10,10 @@ public class Payment {
     @OneToOne(mappedBy = "payment")
     private Order order;
 
-    public Payment(Long id, Instant moment) {
+    public Payment(Long id, Instant moment, Order order) {
         this.id = id;
         this.moment = moment;
+        this.order = order;
     }
 
     public Long getId() {
@@ -29,5 +30,13 @@ public class Payment {
 
     public void setMoment(Instant moment) {
         this.moment = moment;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
 }
