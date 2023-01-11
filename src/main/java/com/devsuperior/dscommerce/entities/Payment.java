@@ -1,5 +1,6 @@
 package com.devsuperior.dscommerce.entities;
 
+import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToOne;
 
 import java.time.Instant;
@@ -7,7 +8,8 @@ import java.time.Instant;
 public class Payment {
     private Long id;
     private Instant moment;
-    @OneToOne(mappedBy = "payment")
+    @OneToOne
+    @MapsId
     private Order order;
 
     public Payment(Long id, Instant moment, Order order) {
